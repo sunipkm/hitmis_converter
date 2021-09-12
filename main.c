@@ -113,7 +113,7 @@ bool savefit(char *fname, hitmis_header *hdr, uint16_t *data)
     int bitpix = USHORT_IMG, naxis = 2;
     int bzero = 32768, bscale = 1;
     long naxes[2] = {(long) hdr->ydim, (long) hdr->xdim}; // width x height
-    if (!fits_create_file(&fptr, fname, &status))
+    if (!fits_create_file(&fptr, fitsname, &status))
     {
         char buf[13]; // buffer to store strings
         memset(buf, 0x0, sizeof(buf));
@@ -220,7 +220,7 @@ bool convert_file(char *fname)
         eprintlf("Error reading %ld bytes, read %ld bytes: %s", img_size, rd, strerror(errno));
         goto clean_mem;
     }
-    if (savefit(fname, hdr, data) == false)
+    if (savefit("temp", hdr, data) == false)
     {
         eprintf("Error converting file to FITS");
         goto clean_mem;

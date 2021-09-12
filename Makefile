@@ -4,7 +4,7 @@ EDLDFLAGS = -lcfitsio -lm
 COBJS = main.o
 
 all: $(COBJS)
-	$(CC) -o test.out $(COBJS) $(EDLDFLAGS)
+	$(CC) -o convert.out $(COBJS) $(EDLDFLAGS)
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(EDCFLAGS)
@@ -14,4 +14,4 @@ all: $(COBJS)
 clean:
 	rm -vf *.o
 	rm -vf *.out
-	rm -vf tmp.fit
+	rm -vf *.fit
