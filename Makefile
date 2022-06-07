@@ -1,6 +1,6 @@
 CC = gcc
-EDCFLAGS = -O2 -I ./
-EDLDFLAGS = -lcfitsio -lm
+EDCFLAGS = -O2 -I ./ `pkg-config cfitsio --cflags`
+EDLDFLAGS = -lcfitsio -lm `pkg-config cfitsio --libs`
 COBJS = main.o
 
 all: $(COBJS)
