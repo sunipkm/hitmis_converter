@@ -33,5 +33,7 @@ for file in $(find $1 -maxdepth 1 -type f); do
             ./convert.out $1/$filename
             mv temp.fit $remotedir/$filename.fit
         done < "$file"
+    else
+        echo "Catalog file not found in $rootdir"
     fi
 done;

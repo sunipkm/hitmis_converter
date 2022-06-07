@@ -241,6 +241,7 @@ int main(int argc, char *argv[])
         printf("Usage:\n%s <HITMIS File Name>\n\n", argv[0]);
         return 0;
     }
-    printf("Res: %d\n", convert_file(argv[1]));
-    return 0;
+    bool ret = convert_file(argv[1]);
+    printf("Res: %d\n", ret);
+    return (!ret);
 }
